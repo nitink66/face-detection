@@ -82,11 +82,11 @@ class App extends Component{
   }
 
   onInputChange = (event) => {
-    this.setState =({input : event.target.value});
+    this.setState ({input : event.target.value});
   }
 
   onButtonSubmit =() =>{
-    this.setState=({
+    this.setState({
       imageUrl: this.state.input
     });
     app.models.predict(Clarifai.COLOR_MODEL, this.state.imageUrl).then(
