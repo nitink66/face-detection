@@ -69,7 +69,7 @@ color: {
 }
 
 const app = new Clarifai.App({
-  apiKey: '499b6ce27908494eb409769cba86505d'
+  apiKey: 'API_KEY'
  });
 
 class App extends Component{
