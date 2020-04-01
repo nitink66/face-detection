@@ -1,6 +1,6 @@
-Live : https://nitink66.github.io/face-detection/
-
 Uses the claraifai API 
+
+The specific API key should be generated from the clarafai.com
 
 Built with create-react-app
 
