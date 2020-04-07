@@ -47,7 +47,7 @@ class Register extends React.Component {
 
   render(){
     return (
-      <article className="bw2 br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 center shadow-5">
+      <form className="bw2 br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 center shadow-5">
       <main className="pa4 black-80">
 <div className="measure ">
   <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
@@ -56,19 +56,22 @@ class Register extends React.Component {
       <label className="db fw6 lh-copy f4 white" htmlFor="email-address">Name</label>
       <input 
         onChange= {this.onNameChange}
-      className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="name"  id="name" />
+      className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="name"  id="name" required/>
     </div>
     <div className="mt3">
       <label className="db fw6 lh-copy f4 white" htmlFor="email-address">Email</label>
-      <input
+      <input 
         onChange= { this.onEmailChange}
-       className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email-address"  id="email-address" />
+       className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email-address"  
+       id="email-address" required
+       pattern=".+@foo.com"
+       />
     </div>
     <div className="mv3">
       <label className="db fw6 lh-copy f4 white" htmlFor="password">Password</label>
       <input
        onChange={this.onPasswordChange}
-       className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password" />
+       className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password" required/>
     </div>
   </fieldset>
   <div className="">
@@ -79,7 +82,7 @@ class Register extends React.Component {
   
 </div>
 </main>
-  </article>
+  </form>
   );
   }
    
