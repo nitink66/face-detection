@@ -6,7 +6,8 @@ class Register extends React.Component {
     this.state ={
       email : '',
       password : '',
-      name :''
+      name :'',
+      fields: {}
     }
   }
 
@@ -17,6 +18,15 @@ class Register extends React.Component {
 
   onEmailChange = (event) =>{
       this.setState( {email : event.target.value} )
+      this.handleChange.bind(this, "email")
+      if (!this.state.email===undefined){
+        let lastAtPos = this.state.fields["email"].lastIndexOf('@');
+        let lastDotPos = this.state.fields["email"].lastIndexOf('.');
+        if (!(lastAtPos < lastDotPos && lastAtPos > 0 && this.state.fields["email"].indexOf('@@') == -1 && lastDotPos > 2 && (this.state.fields["email"].length - lastDotPos) > 2)) {
+          
+        return alert("invalid")
+      }
+    }
   }
 
   onPasswordChange = (event)=>{
@@ -43,6 +53,11 @@ class Register extends React.Component {
       })
     
   }
+  handleChange(field, e){         
+    let fields = this.state.fields;
+    fields[field] = e.target.value;        
+    this.setState({fields});
+}
 
 
   render(){
@@ -60,7 +75,7 @@ class Register extends React.Component {
     </div>
     <div className="mt3">
       <label className="db fw6 lh-copy f4 white" htmlFor="email-address">Email</label>
-      <input 
+      <input value={this.state.fields["email"]} 
         onChange= { this.onEmailChange}
        className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email-address"  
        id="email-address" required
